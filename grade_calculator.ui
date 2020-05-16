@@ -14,7 +14,7 @@
    <string>grade_calculator</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QSpinBox" name="spinBox">
+   <widget class="QSpinBox" name="spinBox_1">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -30,7 +30,7 @@
      </sizepolicy>
     </property>
    </widget>
-   <widget class="QSlider" name="horizontalSlider">
+   <widget class="QSlider" name="horizontalSlider_1">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -59,7 +59,7 @@
      </sizepolicy>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="label_1">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -78,7 +78,7 @@
      <string>Homework 1</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
       <x>260</x>
@@ -97,7 +97,7 @@
      <string>Midterm 1</string>
     </property>
    </widget>
-   <widget class="QSpinBox" name="spinBox_2">
+   <widget class="QSpinBox" name="spinBox_8">
     <property name="geometry">
      <rect>
       <x>350</x>
@@ -113,7 +113,7 @@
      </sizepolicy>
     </property>
    </widget>
-   <widget class="QSlider" name="horizontalSlider_2">
+   <widget class="QSlider" name="horizontalSlider_8">
     <property name="geometry">
      <rect>
       <x>250</x>
@@ -126,7 +126,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -145,7 +145,7 @@
      <string>Homework 2</string>
     </property>
    </widget>
-   <widget class="QSpinBox" name="spinBox_3">
+   <widget class="QSpinBox" name="spinBox_2">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -161,7 +161,7 @@
      </sizepolicy>
     </property>
    </widget>
-   <widget class="QSlider" name="horizontalSlider_3">
+   <widget class="QSlider" name="horizontalSlider_2">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -174,7 +174,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -193,7 +193,7 @@
      <string>Homework 3</string>
     </property>
    </widget>
-   <widget class="QSpinBox" name="spinBox_4">
+   <widget class="QSpinBox" name="spinBox_3">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -209,7 +209,7 @@
      </sizepolicy>
     </property>
    </widget>
-   <widget class="QSlider" name="horizontalSlider_4">
+   <widget class="QSlider" name="horizontalSlider_3">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -222,7 +222,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
+   <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -241,7 +241,7 @@
      <string>Homework 4</string>
     </property>
    </widget>
-   <widget class="QSpinBox" name="spinBox_5">
+   <widget class="QSpinBox" name="spinBox_4">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -257,7 +257,7 @@
      </sizepolicy>
     </property>
    </widget>
-   <widget class="QSlider" name="horizontalSlider_5">
+   <widget class="QSlider" name="horizontalSlider_4">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -270,7 +270,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QLabel" name="label_6">
+   <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -289,7 +289,7 @@
      <string>Homework 5</string>
     </property>
    </widget>
-   <widget class="QSpinBox" name="spinBox_6">
+   <widget class="QSpinBox" name="spinBox_5">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -305,7 +305,7 @@
      </sizepolicy>
     </property>
    </widget>
-   <widget class="QSlider" name="horizontalSlider_6">
+   <widget class="QSlider" name="horizontalSlider_5">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -318,7 +318,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QLabel" name="label_7">
+   <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -337,7 +337,7 @@
      <string>Homework 6</string>
     </property>
    </widget>
-   <widget class="QSpinBox" name="spinBox_7">
+   <widget class="QSpinBox" name="spinBox_6">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -353,7 +353,7 @@
      </sizepolicy>
     </property>
    </widget>
-   <widget class="QSlider" name="horizontalSlider_7">
+   <widget class="QSlider" name="horizontalSlider_6">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -366,7 +366,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QLabel" name="label_8">
+   <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -385,7 +385,7 @@
      <string>Homework 7</string>
     </property>
    </widget>
-   <widget class="QSlider" name="horizontalSlider_8">
+   <widget class="QSlider" name="horizontalSlider_7">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -398,7 +398,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QSpinBox" name="spinBox_8">
+   <widget class="QSpinBox" name="spinBox_7">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -520,7 +520,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>RadioButton</string>
+     <string>Scheme A</string>
     </property>
    </widget>
    <widget class="QRadioButton" name="radioButton_2">
@@ -533,7 +533,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>RadioButton</string>
+     <string>Scheme B</string>
     </property>
    </widget>
   </widget>

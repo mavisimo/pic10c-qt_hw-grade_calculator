@@ -17,5 +17,8 @@ public:
 
 private:
     Ui::grade_calculator *ui;
+
+private slots:
+    int hw_grade();
 };
 #endif // GRADE_CALCULATOR_H
