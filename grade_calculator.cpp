@@ -7,7 +7,10 @@ grade_calculator::grade_calculator(QWidget *parent)
 {
     ui->setupUi(this);
 
-    // setting range and connecting sliders and spin boxes, spin boxes and final grade
+    // inital set of final grade and scheme
+    ui->lineEdit->setText(QString::number(0.0));
+
+    // setting range and connecting sliders and spin boxes
     QSpinBox* inputs[10];
     for(int i = 1; i<11; i++)
     {
@@ -19,14 +22,12 @@ grade_calculator::grade_calculator(QWidget *parent)
 
         connect(spinbox, SIGNAL(valueChanged(int)), slider, SLOT(setValue(int)));
         connect(slider, SIGNAL(valueChanged(int)), spinbox, SLOT(setValue(int)));
-        connect(inputs[i], SIGNAL(valueChanged(int)), this, SLOT(final_grade_A()));
+ //       connect(inputs[i], SIGNAL(valueChanged(int)), this, SLOT(final_grade_A()));
     }
 
-    // connecting final grade with radio button schemes
-    ui->lineEdit->setText(QString::number(0.0));
-    ui->radioButton->setChecked(true);
-//    connect(ui->radioButton, SIGNAL(isChecked(true)), this, SLOT(final_grade_A()));
-//    connect(ui->radioButton_2, SIGNAL(isChecked(true)), this, SLOT(final_grade_B()));
+    // connect radio buttons to final grade calculations
+    connect(ui->radioButton, SIGNAL(toggled(bool)), this, SLOT(radio_to_A()));
+    connect(ui->radioButton_2, SIGNAL(toggled(bool)), this, SLOT(radio_to_B()));
 }
 
 double grade_calculator::hw_grade()
@@ -40,9 +41,27 @@ double grade_calculator::hw_grade()
         hw_scores[i-1] = spinbox->value();
         hw_sum += hw_scores[i-1];
         if (lowest_hw > hw_scores[i-1])  lowest_hw = hw_scores[i-1];
-        std::cout<< hw_scores[i-1];
     }
     return (hw_sum - lowest_hw)/6.0;
+}
+
+void grade_calculator::radio_to_A()
+{
+    QSpinBox* inputs[10];
+    for(int i = 1; i<11; i++)
+    {
+        inputs[i] = findChild<QSpinBox*>("spinBox_" + QString::number(i));
+        connect(inputs[i], SIGNAL(valueChanged(int)), this, SLOT(final_grade_A()));
+    }
+}
+void grade_calculator::radio_to_B()
+{
+    QSpinBox* inputs[10];
+    for(int i = 1; i<11; i++)
+    {
+        inputs[i] = findChild<QSpinBox*>("spinBox_" + QString::number(i));
+        connect(inputs[i], SIGNAL(valueChanged(int)), this, SLOT(final_grade_B()));
+    }
 }
 
 void grade_calculator::final_grade_A()
