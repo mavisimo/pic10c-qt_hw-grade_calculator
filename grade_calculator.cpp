@@ -22,12 +22,14 @@ grade_calculator::grade_calculator(QWidget *parent)
 
         connect(spinbox, SIGNAL(valueChanged(int)), slider, SLOT(setValue(int)));
         connect(slider, SIGNAL(valueChanged(int)), spinbox, SLOT(setValue(int)));
- //       connect(inputs[i], SIGNAL(valueChanged(int)), this, SLOT(final_grade_A()));
     }
 
     // connect radio buttons to final grade calculations
+    connect(ui->radioButton, SIGNAL(toggled(bool)), this, SLOT(final_grade_A()));
     connect(ui->radioButton, SIGNAL(toggled(bool)), this, SLOT(radio_to_A()));
+    connect(ui->radioButton_2, SIGNAL(toggled(bool)), this, SLOT(final_grade_B()));
     connect(ui->radioButton_2, SIGNAL(toggled(bool)), this, SLOT(radio_to_B()));
+    ui->radioButton->toggle();
 }
 
 double grade_calculator::hw_grade()
