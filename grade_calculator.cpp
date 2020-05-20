@@ -9,6 +9,7 @@ grade_calculator::grade_calculator(QWidget *parent)
 
     // inital set of final grade and scheme
     ui->lineEdit->setText(QString::number(0.0));
+    ui->progressBar->setValue(0);
 
     // setting range and connecting sliders and spin boxes
     QSpinBox* inputs[10];
@@ -74,6 +75,7 @@ void grade_calculator::final_grade_A()
     int final = ui->spinBox_10->value();
     double final_score = 0.25*hw_avg + 0.2*midterm_1 + 0.2*midterm_2 + 0.35*final;
     ui->lineEdit->setText(QString::number(final_score));
+    ui->progressBar->setValue(final_score);
 }
 
 void grade_calculator::final_grade_B()
@@ -85,6 +87,7 @@ void grade_calculator::final_grade_B()
     int final = ui->spinBox_10->value();
     double final_score = 0.25*hw_avg + 0.3*midterm + 0.45*final;
     ui->lineEdit->setText(QString::number(final_score));
+    ui->progressBar->setValue(final_score);
 }
 
 grade_calculator::~grade_calculator()
