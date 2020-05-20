@@ -7,9 +7,12 @@ grade_calculator::grade_calculator(QWidget *parent)
 {
     ui->setupUi(this);
 
-    // inital set of final grade and scheme
+    // inital set of class and final grade output
     ui->lineEdit->setText(QString::number(0.0));
     ui->progressBar->setValue(0);
+    ui->comboBox->addItem("PIC10B");
+    ui->comboBox->addItem("PIC10C");
+    connect(ui->comboBox, SIGNAL(currentTextChanged(QString)), this, SLOT(choose_class()));
 
     // setting range and connecting sliders and spin boxes
     QSpinBox* inputs[10];
@@ -46,6 +49,36 @@ double grade_calculator::hw_grade()
         if (lowest_hw > hw_scores[i-1])  lowest_hw = hw_scores[i-1];
     }
     return (hw_sum - lowest_hw)/6.0;
+}
+
+void grade_calculator::choose_class()
+{
+    if (ui->comboBox->currentText() == "PIC10B")
+    {
+        ui->label_8->setText("Midterm 1");
+        ui->label_9->setText("Midterm 2");
+
+        // connect radio buttons to final grade calculations
+        connect(ui->comboBox, SIGNAL(currentTextChanged(QString)), this, SLOT(final_grade_A()));
+        connect(ui->radioButton, SIGNAL(toggled(bool)), this, SLOT(final_grade_A()));
+        connect(ui->radioButton, SIGNAL(toggled(bool)), this, SLOT(radio_to_A()));
+        connect(ui->radioButton_2, SIGNAL(toggled(bool)), this, SLOT(final_grade_B()));
+        connect(ui->radioButton_2, SIGNAL(toggled(bool)), this, SLOT(radio_to_B()));
+        ui->radioButton->toggle();
+    }
+    else //PIC10C
+    {
+        ui->label_8->setText("Midterm");
+        ui->label_9->setText("Final Project");
+
+        // connect radio buttons to final grade calculations
+        connect(ui->comboBox, SIGNAL(currentTextChanged(QString)), this, SLOT(final_grade_C()));
+        connect(ui->radioButton, SIGNAL(toggled(bool)), this, SLOT(final_grade_C()));
+        connect(ui->radioButton, SIGNAL(toggled(bool)), this, SLOT(radio_to_A()));
+        connect(ui->radioButton_2, SIGNAL(toggled(bool)), this, SLOT(final_grade_C()));
+        connect(ui->radioButton_2, SIGNAL(toggled(bool)), this, SLOT(radio_to_B()));
+        ui->radioButton->toggle();
+    }
 }
 
 void grade_calculator::radio_to_A()
@@ -86,6 +119,27 @@ void grade_calculator::final_grade_B()
     if (midterm < midterm_2)  midterm = midterm_2;
     int final = ui->spinBox_10->value();
     double final_score = 0.25*hw_avg + 0.3*midterm + 0.45*final;
+    ui->lineEdit->setText(QString::number(final_score));
+    ui->progressBar->setValue(final_score);
+}
+
+void grade_calculator::final_grade_C()
+{
+    double hw_avg = hw_grade();
+    int midterm = ui->spinBox_8->value();
+    int project = ui->spinBox_9->value();
+    int final = ui->spinBox_10->value();
+    double final_score = 0.15*hw_avg + 0.25*midterm + 0.3*project + 0.3*final;
+    ui->lineEdit->setText(QString::number(final_score));
+    ui->progressBar->setValue(final_score);
+}
+
+void grade_calculator::final_grade_D()
+{
+    double hw_avg = hw_grade();
+    int project = ui->spinBox_9->value();
+    int final = ui->spinBox_10->value();
+    double final_score = 0.15*hw_avg + 0.5*project + 0.35*final;
     ui->lineEdit->setText(QString::number(final_score));
     ui->progressBar->setValue(final_score);
 }

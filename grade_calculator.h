@@ -20,8 +20,11 @@ private:
     Ui::grade_calculator *ui;
 
 private slots:
+    void choose_class();
     void final_grade_A();
     void final_grade_B();
+    void final_grade_C();
+    void final_grade_D();
     void radio_to_A();
     void radio_to_B();
 };
