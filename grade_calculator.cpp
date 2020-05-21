@@ -28,7 +28,7 @@ grade_calculator::grade_calculator(QWidget *parent)
         connect(slider, SIGNAL(valueChanged(int)), spinbox, SLOT(setValue(int)));
     }
 
-    // connect radio buttons to final grade calculations
+    // connect initial radio buttons to final grade calculations
     connect(ui->radioButton, SIGNAL(toggled(bool)), this, SLOT(final_grade_A()));
     connect(ui->radioButton, SIGNAL(toggled(bool)), this, SLOT(radio_to_A()));
     connect(ui->radioButton_2, SIGNAL(toggled(bool)), this, SLOT(final_grade_B()));
@@ -57,6 +57,7 @@ void grade_calculator::choose_class()
     {
         ui->label_8->setText("Midterm 1");
         ui->label_9->setText("Midterm 2");
+        final_grade_A();
 
         // connect radio buttons to final grade calculations
         connect(ui->comboBox, SIGNAL(currentTextChanged(QString)), this, SLOT(final_grade_A()));
@@ -64,21 +65,21 @@ void grade_calculator::choose_class()
         connect(ui->radioButton, SIGNAL(toggled(bool)), this, SLOT(radio_to_A()));
         connect(ui->radioButton_2, SIGNAL(toggled(bool)), this, SLOT(final_grade_B()));
         connect(ui->radioButton_2, SIGNAL(toggled(bool)), this, SLOT(radio_to_B()));
-        ui->radioButton->toggle();
     }
     else //PIC10C
     {
         ui->label_8->setText("Midterm");
         ui->label_9->setText("Final Project");
+        final_grade_C();
 
         // connect radio buttons to final grade calculations
         connect(ui->comboBox, SIGNAL(currentTextChanged(QString)), this, SLOT(final_grade_C()));
         connect(ui->radioButton, SIGNAL(toggled(bool)), this, SLOT(final_grade_C()));
-        connect(ui->radioButton, SIGNAL(toggled(bool)), this, SLOT(radio_to_A()));
-        connect(ui->radioButton_2, SIGNAL(toggled(bool)), this, SLOT(final_grade_C()));
-        connect(ui->radioButton_2, SIGNAL(toggled(bool)), this, SLOT(radio_to_B()));
-        ui->radioButton->toggle();
+        connect(ui->radioButton, SIGNAL(toggled(bool)), this, SLOT(radio_to_C()));
+        connect(ui->radioButton_2, SIGNAL(toggled(bool)), this, SLOT(final_grade_D()));
+        connect(ui->radioButton_2, SIGNAL(toggled(bool)), this, SLOT(radio_to_D()));
     }
+    ui->radioButton->toggle();
 }
 
 void grade_calculator::radio_to_A()
@@ -97,6 +98,26 @@ void grade_calculator::radio_to_B()
     {
         inputs[i] = findChild<QSpinBox*>("spinBox_" + QString::number(i));
         connect(inputs[i], SIGNAL(valueChanged(int)), this, SLOT(final_grade_B()));
+    }
+}
+
+void grade_calculator::radio_to_C()
+{
+    QSpinBox* inputs[10];
+    for(int i = 1; i<11; i++)
+    {
+        inputs[i] = findChild<QSpinBox*>("spinBox_" + QString::number(i));
+        connect(inputs[i], SIGNAL(valueChanged(int)), this, SLOT(final_grade_C()));
+    }
+}
+
+void grade_calculator::radio_to_D()
+{
+    QSpinBox* inputs[10];
+    for(int i = 1; i<11; i++)
+    {
+        inputs[i] = findChild<QSpinBox*>("spinBox_" + QString::number(i));
+        connect(inputs[i], SIGNAL(valueChanged(int)), this, SLOT(final_grade_D()));
     }
 }
 

@@ -27,5 +27,7 @@ private slots:
     void final_grade_D();
     void radio_to_A();
     void radio_to_B();
+    void radio_to_C();
+    void radio_to_D();
 };
 #endif // GRADE_CALCULATOR_H
